@@ -1,0 +1,16 @@
+{
+  "todos": [
+    {
+      "task": "read a book",
+      "done": false
+    },
+    {
+      "task": "meditate",
+      "done": true
+    },
+    {
+      "task": "do a test",
+      "done": false
+    }
+  ]
+}
