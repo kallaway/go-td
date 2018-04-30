@@ -50,11 +50,13 @@ func serveTodosFromData(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-	http.HandleFunc("/todos", serveTodos)
-	http.HandleFunc("/todos-from-data", serveTodosFromData)
-	http.HandleFunc("/", serveAPIRules)
+	h := http.NewServeMux()
+
+	h.HandleFunc("/todos", serveTodos)
+	h.HandleFunc("/todos-from-data", serveTodosFromData)
+	h.HandleFunc("/", serveAPIRules)
 	fmt.Println("The server is now available at port :8100")
-	if err := http.ListenAndServe(":8100", nil); err != nil {
+	if err := http.ListenAndServe(":8100", h); err != nil {
 		panic(err)
 	}
 }
